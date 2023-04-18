@@ -8,5 +8,5 @@ dotenv.config({ path: '.env.local' });
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
-  base: '/vite-test-crm',
+  base: '/vite-test-crm/',
 });

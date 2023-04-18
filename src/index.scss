@@ -1,0 +1,21 @@
+$theme-colors: (
+  "primary": #494949,
+  "danger": #ff4136,
+  "secondary": #c9c9c9,
+);
+
+$enable-rounded: false;
+
+
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}

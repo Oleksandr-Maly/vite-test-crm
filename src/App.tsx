@@ -1,17 +1,21 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
+
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './firebaseConfig';
+
+import AuthPage from './pages/AuthPage';
+import HomePage from './pages/HomePage';
+
 import AuthRoute from './components/AuthRoute';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
 
 initializeApp(firebaseConfig);
 
 const App: React.FC = () => {
-
   return (
-    <BrowserRouter basename='/vite-test-crm'>
+    <BrowserRouter basename='/vite-test-crm/'>
       <Routes>
         <Route
           path='/'
@@ -21,7 +25,10 @@ const App: React.FC = () => {
             </AuthRoute>
           }
         />
-        <Route path='/login' element={<LoginPage />} />
+        <Route path='/auth' element={<AuthPage />}>
+          <Route path='login' element={<Login />} />
+          <Route path='signup' element={<SignUp />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

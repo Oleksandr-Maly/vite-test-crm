@@ -11,21 +11,21 @@ const AuthRoute: React.FC<Props> = (props) => {
   const auth = getAuth();
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(false);
-
-  const authCheck = onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setLoading(false);
-    } else {
-      setLoading(false);
-      navigate('/login');
-    }
-  });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    authCheck();
-    return () => authCheck();
+    const unsubscribe = authCheck();
+    return () => unsubscribe();
   }, [auth]);
+
+  const authCheck = () => {
+    return onAuthStateChanged(auth, (user) => {
+      setLoading(false);
+      if (!user) {
+        navigate('/auth/login');
+      }
+    });
+  };
 
   if (loading) {
     return <p>Loading...</p>;
