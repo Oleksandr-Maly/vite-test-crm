@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { getFirestore } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
@@ -10,6 +11,7 @@ const LoginPage: React.FC = () => {
   const [authing, setAuthing] = useState(false);
 
   const auth = getAuth();
+
   const navigate = useNavigate();
 
   const signUpWithEmailAndPassword = async (email: string, password: string) => {

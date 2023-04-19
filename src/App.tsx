@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './firebaseConfig';
+import { getFirestore } from 'firebase/firestore';
 
 import AuthPage from './pages/AuthPage';
 import HomePage from './pages/HomePage';
@@ -11,7 +12,8 @@ import AuthRoute from './components/AuthRoute';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 const App: React.FC = () => {
   return (
@@ -20,8 +22,8 @@ const App: React.FC = () => {
         <Route
           path='/'
           element={
-            <AuthRoute>
-              <HomePage />
+            <AuthRoute db={db}>
+              <HomePage db={db}/>
             </AuthRoute>
           }
         />
