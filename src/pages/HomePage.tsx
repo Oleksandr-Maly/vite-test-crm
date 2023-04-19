@@ -1,50 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { getAuth, signOut } from 'firebase/auth';
-import { doc, Firestore, getDoc } from 'firebase/firestore';
+import { getAuth, signOut, User } from 'firebase/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { UserData } from '~/types/UserData';
+import { removeUser } from '~/store/slices/userSlice';
 
-type User = {
-  createdAt: string;
-  displayName: string;
-  email: string;
-  photoURL: string;
-  role: string;
-};
-
-type Props = {
-  db: Firestore;
-};
-
-const HomePage: React.FC<Props> = ({ db }) => {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(false);
+const HomePage: React.FC = () => {
   const auth = getAuth();
-  const user = auth.currentUser;
-
-  useEffect(() => {
-    console.log(`start getting user from firestore`);
-    getUserFromFirestore();
-  }, [user]);
-
-  const getUserFromFirestore = async () => {
-    setLoading(true);
-    try {
-      if (user) {
-        const docRef = doc(db, 'users', user.uid);
-        const docSnap = await getDoc(docRef);
-        setCurrentUser(docSnap.data() as User);
-        console.log('current user:', currentUser);
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  const dispatch = useDispatch();
+  const currentUser: UserData = useSelector((state: any) => state.user);
   const signOutHandler = async () => {
-    console.log('sign out clicked');
     try {
       await signOut(auth);
+      dispatch(removeUser());
     } catch (error) {
       console.log(error);
     }
@@ -54,7 +21,6 @@ const HomePage: React.FC<Props> = ({ db }) => {
     <div>
       <p>Home Page</p>
       <button onClick={signOutHandler}> Sign Out</button>
-      {loading && <p>Loading...</p>}
       {currentUser && (
         <>
           <p>{currentUser.role}</p>

@@ -40,12 +40,12 @@ const LoginPage: React.FC = () => {
 
   return (
     <Container className='d-flex flex-column justify-content-center align-items-center mt-4'>
-      <p className='h6'>Want to create account?</p>
+      <h1 className='h6'>Want to create account?</h1>
       <Card.Body>
         <AuthForm buttonTitle='Sign Up' handleSubmit={handleSubmit} authing={authing} />
       </Card.Body>
       <Card.Text className='d-flex justify-content-center align-items-center mt-4 mb-2'>
-        <p className='mr-2 mb-0'>Already have an account?</p>
+        <div className='mr-2 mb-0'>Already have an account?</div>
         <Link to='/auth/login' style={{ color: '#1877f2' }}>
           Sign In
         </Link>

@@ -37,12 +37,12 @@ const Login: React.FC = () => {
 
   return (
     <Container className='d-flex flex-column justify-content-center align-items-center mt-4'>
-      <p className='h6'>Want to log in?</p>
+      <h1 className='h6'>Want to log in?</h1>
       <Card.Body>
         <AuthForm buttonTitle='Log In' handleSubmit={handleSubmit} authing={authing} />
       </Card.Body>
       <Card.Text className='d-flex justify-content-center align-items-center mt-4 mb-2'>
-        <p className='mr-2 mb-0'>Do not have account?</p>
+        <div className='mr-2 mb-0'>Do not have account?</div>
         <Link to='/auth/signup' style={{ color: '#1877f2' }}>
           Register
         </Link>
