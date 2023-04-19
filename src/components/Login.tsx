@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Card, Container, Form } from 'react-bootstrap';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { Card, Container } from 'react-bootstrap';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import SignInWithSocialMedia from '~/components/SignInWithSocialMedia';
 import { Link } from 'react-router-dom';
 import { AuthForm } from './AuthForm';
 

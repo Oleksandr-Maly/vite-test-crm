@@ -12,8 +12,8 @@ type Props = {
 };
 
 export const AuthForm: React.FC<Props> = ({ authing, buttonTitle, handleSubmit }) => {
-  const emailRef = useRef<HTMLInputElement>();
-  const passwordRef = useRef<HTMLInputElement>();
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
   return (
     <Form onSubmit={(e) => handleSubmit(e, emailRef.current?.value, passwordRef.current?.value)}>

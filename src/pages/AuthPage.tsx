@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Container } from 'react-bootstrap';
+import welcomeImg from '/images/welcome-img.png';
 
 import { Outlet } from 'react-router-dom';
 import SignInWithSocialMedia from '~/components/SignInWithSocialMedia';
@@ -23,7 +24,7 @@ const LoginPage: React.FC = () => {
         }}
       >
         <Card.Img
-          src='../public/images/welcome-img.png'
+          src={welcomeImg}
           className='w-50 img-fluid'
           style={{ objectFit: 'cover', objectPosition: 'right' }}
         />
@@ -38,7 +39,6 @@ const LoginPage: React.FC = () => {
         </Card.Body>
       </Card>
     </Container>
-
   );
 };
 

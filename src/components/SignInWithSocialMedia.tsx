@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FacebookAuthProvider, getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { Button, ButtonGroup } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 const SignInWithSocialMedia: React.FC = () => {
   const auth = getAuth();
@@ -39,7 +39,7 @@ const SignInWithSocialMedia: React.FC = () => {
     <div className='d-flex justify-content-center'>
       <Button
         className='btn btn-circle m-1'
-        style={{ backgroundColor: '#DB4437', color: 'white', borderColor: '#DB4437'}}
+        style={{ backgroundColor: '#DB4437', color: 'white', borderColor: '#DB4437' }}
         onClick={signInWithGoogle}
         disabled={authing}
       >

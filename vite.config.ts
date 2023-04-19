@@ -9,4 +9,9 @@ dotenv.config({ path: '.env.local' });
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   base: '/vite-test-crm/',
+  resolve: {
+    alias: {
+      '/images': '/public/images',
+    },
+  },
 });

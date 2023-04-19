@@ -1,11 +1,10 @@
 $theme-colors: (
-  "primary": #494949,
-  "danger": #ff4136,
-  "secondary": #c9c9c9,
+  'primary': #494949,
+  'danger': #ff4136,
+  'secondary': #c9c9c9,
 );
 
 $enable-rounded: false;
-
 
 @import 'bootstrap/scss/bootstrap.scss';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
